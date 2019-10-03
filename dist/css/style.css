@@ -34,12 +34,50 @@ body {
   display: grid;
   grid-template-rows: 10rem minmax(100rem, auto);
   grid-template-columns: 1.1fr 2fr 1.1fr;
-  grid-template-areas: "head head head" "list recipe shopping"; }
+  grid-template-areas: "head head likes" "list recipe shopping"; }
   @media only screen and (max-width: 68.75em) {
+    .container .header {
+      flex-direction: column;
+      justify-content: space-around; }
     .container {
       width: 100%;
-      margin: 0;
-      border-radius: 0; } }
+      border-radius: 0; 
+      grid-template-rows: 10rem 10rem minmax(100rem,auto);
+      grid-template-columns: 100%;
+      grid-template-areas: "head" "head" "list" "recipe" "shopping"; }
+    .results {
+      grid-area: list; }
+    .recipe {
+      grid-area: recipe; }
+    .shopping {
+      grid-area: shopping; }
+
+    .likes {
+      grid-area: unset !important;
+      position: unset !important; }
+    .likes__field {
+      position: absolute;
+      right: 9rem;
+      top: 7rem;
+      height: 20px !important;
+      padding: 0 !important; }
+    .likes__panel {
+      right: 9rem !important;
+      top: 11rem !important; }
+ }
+ @media (max-width: 450px) {
+   .recipe__info:not(:last-child) {
+     margin-right: 0 !important; }
+   .likes__field {
+     top: 5rem;
+     right: 1rem; }
+   .likes__panel {
+     right: 1rem !important; }
+   .search__field {
+    width: 23rem !important; }
+  .btn {
+    padding: 1.3rem 2rem !important; }
+ }
 
 .btn, .btn-small, .btn-small:link, .btn-small:visited {
   background-image: linear-gradient(to right bottom, #FBDB89, #F48982);
@@ -165,6 +203,11 @@ body {
     margin-left: 4rem;
     height: 4.5rem;
     display: block; }
+    @media (max-width: 68.75em) {
+      .header .mobile {
+        display: flex;
+        flex-direction: column; }
+    }
 
 .search {
   background-color: #fff;
@@ -187,8 +230,30 @@ body {
       outline: none; }
     .search__field::placeholder {
       color: #DAD0CC; }
+  @media(min-width:68.75em) {
+  .search__form {
+    padding-right: 3rem; }
+  .recipe__info-buttons {
+    visibility: hidden;
+    opacity: 0;
+    transform: translateY(5px);
+    transition: all .4s; }
+  .recipe:hover .recipe__info-buttons {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0); }
+    .shopping__delete {
+      visibility: hidden;
+      opacity: 0;
+      transition: all .5s; }
+    .shopping__item:hover .shopping__delete {
+      opacity: 1;
+      visibility: visible; }
+}
 
 .likes {
+  grid-area: likes;
+  justify-content: flex-end;
   position: relative;
   align-self: stretch;
   padding: 0 !important; }
@@ -362,15 +427,7 @@ body {
     font-weight: 600; }
   .recipe__info-buttons {
     display: flex;
-    margin-left: 1.5rem;
-    visibility: hidden;
-    opacity: 0;
-    transform: translateY(5px);
-    transition: all .4s; }
-  .recipe:hover .recipe__info-buttons {
-    visibility: visible;
-    opacity: 1;
-    transform: translateY(0); }
+    margin-left: 1.5rem; }
   .recipe__love {
     background-image: linear-gradient(to right bottom, #FBDB89, #F48982);
     border-radius: 50%;
@@ -483,10 +540,4 @@ body {
     right: 0;
     background-image: linear-gradient(to right, transparent 0%, #fff 40%, #fff 100%);
     width: 3.75rem;
-    padding-left: 2rem;
-    visibility: hidden;
-    opacity: 0;
-    transition: all .5s; }
-  .shopping__item:hover .shopping__delete {
-    opacity: 1;
-    visibility: visible; }
+    padding-left: 2rem; }
