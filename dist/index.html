@@ -14,25 +14,30 @@
 <body>
     <div class="container">
         <header class="header">
-            <img src="img/logo.png" alt="Logo" class="header__logo">
-            <form class="search">
-                <input type="text" class="search__field" placeholder="Search over 1,000,000 recipes...">
-                <button class="btn search__btn">
-                    <svg class="search__icon">
-                        <use href="img/icons.svg#icon-magnifying-glass"></use>
-                    </svg>
-                    <span>Search</span>
-                </button>
-            </form>
-            <div class="likes">
-                <div class="likes__field">
-                    <svg class="likes__icon">
-                        <use href="img/icons.svg#icon-heart"></use>
-                    </svg>
-                </div>
-                <div class="likes__panel">
-                    <ul class="likes__list">
-                        <!--
+            <div class="logo">
+                <img src="img/logo.png" alt="Logo" class="header__logo">
+            </div>
+            <div class="search__form">
+                <form class="search">
+                    <input type="text" class="search__field" placeholder="Search over 1,000,000 recipes...">
+                    <button class="btn search__btn">
+                        <svg class="search__icon">
+                            <use href="img/icons.svg#icon-magnifying-glass"></use>
+                        </svg>
+                        <span>Search</span>
+                    </button>
+                </form>
+            </div>
+        </header>
+        <div class="header likes">
+            <div class="likes__field">
+                <svg class="likes__icon">
+                    <use href="img/icons.svg#icon-heart"></use>
+                </svg>
+            </div>
+            <div class="likes__panel">
+                <ul class="likes__list">
+                    <!--
                         <li>
                             <a class="likes__link" href="#23456">
                                 <figure class="likes__fig">
@@ -45,11 +50,9 @@
                             </a>
                         </li>
                         -->
-                    </ul>
-                </div>
+                </ul>
             </div>
-        </header>
-
+        </div>
 
         <div class="results">
             <ul class="results__list">
